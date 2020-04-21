@@ -1,7 +1,26 @@
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
-  <modelVersion>4.0.0</modelVersion>
-  <groupId>org.springframework</groupId>
-  <artifactId>spring-framework-5.1.14-source</artifactId>
-  <version>0.0.1-SNAPSHOT</version>
-  <packaging>pom</packaging>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>org.springframework</groupId>
+	<artifactId>spring-framework-5.1.14-source</artifactId>
+	<version>0.0.1-SNAPSHOT</version>
+	<packaging>pom</packaging>
+
+	<modules>
+		<module>spring-jcl</module>
+		<module>spring-core</module>
+		<module>spring-aop</module>
+		<module>spring-beans</module>
+		<module>spring-context</module>
+		<module>spring-instrument</module>
+		<module>spring-expression</module>
+		<module>spring-tx</module>
+		<module>spring-jdbc</module>
+		<module>spring-context-support</module>
+		<module>spring-oxm</module>
+		<module>spring-web</module>
+		<module>spring-webmvc</module>
+		<module>spring-orm</module>
+	</modules>
 </project>
