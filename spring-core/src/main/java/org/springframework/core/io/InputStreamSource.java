@@ -38,7 +38,7 @@ import java.io.InputStream;
  * @see InputStreamResource
  * @see ByteArrayResource
  */
-public interface InputStreamSource {
+public interface InputStreamSource {	
 
 	/**
 	 * Return an {@link InputStream} for the content of an underlying resource.

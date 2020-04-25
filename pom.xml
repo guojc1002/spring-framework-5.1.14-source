@@ -22,5 +22,6 @@
 		<module>spring-web</module>
 		<module>spring-webmvc</module>
 		<module>spring-orm</module>
+		<module>guojc-spring</module>
 	</modules>
 </project>

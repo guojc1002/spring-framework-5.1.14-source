@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+    status="warn" 日志框架本身的输出日志级别
+    monitorInterval="5" 自动加载配置文件的间隔时间，不低于 5 秒
+-->
+<Configuration status="info" monitorInterval="5">
+
+    <!--
+        集中配置属性进行管理
+        使用时通过:${name}
+    -->
+    <properties>
+        <property name="LOG_HOME">/logs/spring/source</property>
+    </properties>
+
+    <!--日志处理-->
+    <Appenders>
+        <!--控制台输出 appender-->
+        <Console name="Console" target="SYSTEM_OUT">
+            <PatternLayout pattern="%d{HH:mm:ss.SSS} [%t] [%-5level] %c{36}:%L --- %m%n"/>
+        </Console>
+    </Appenders>
+
+    <!--logger 定义-->
+    <Loggers>
+        <logger name="com.org.springframework" level="debug" includeLocation="false" additivity="false">
+            <appender-ref ref="Console"/>
+        </logger>
+
+        <logger name="com.guojc" level="debug" includeLocation="false" additivity="false">
+            <appender-ref ref="Console"/>
+        </logger>
+
+        <Root level="error">
+            <AppenderRef ref="Console"/>
+        </Root>
+    </Loggers>
+</Configuration>
