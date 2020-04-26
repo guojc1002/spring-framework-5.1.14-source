@@ -23,7 +23,7 @@
 
     <!--logger 定义-->
     <Loggers>
-        <logger name="com.org.springframework" level="debug" includeLocation="false" additivity="false">
+        <logger name="org.springframework" level="TRACE" includeLocation="false" additivity="false">
             <appender-ref ref="Console"/>
         </logger>
 

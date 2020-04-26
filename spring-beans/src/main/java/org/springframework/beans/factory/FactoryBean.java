@@ -75,6 +75,7 @@ public interface FactoryBean<T> {
 	 * @throws Exception in case of creation errors
 	 * @see FactoryBeanNotInitializedException
 	 */
+	//	返回由FactoryBean创建的bean实例,如果isSingleton()返回true,则该实例会放到Spring容器中单实例缓冲池中
 	@Nullable
 	T getObject() throws Exception;
 
@@ -97,6 +98,7 @@ public interface FactoryBean<T> {
 	 * or {@code null} if not known at the time of the call
 	 * @see ListableBeanFactory#getBeansOfType
 	 */
+	//	返回FactoryBean创建的bean类型
 	@Nullable
 	Class<?> getObjectType();
 
@@ -125,6 +127,7 @@ public interface FactoryBean<T> {
 	 * @see #getObject()
 	 * @see SmartFactoryBean#isPrototype()
 	 */
+	//	返回由FactoryBean创建的bean实例作用域是singleton还是prototype
 	default boolean isSingleton() {
 		return true;
 	}

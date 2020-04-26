@@ -6,6 +6,7 @@ import lombok.extern.slf4j.Slf4j;
 import org.junit.Test;
 import org.springframework.beans.factory.BeanFactory;
 import org.springframework.beans.factory.xml.XmlBeanFactory;
+import org.springframework.context.support.ClassPathXmlApplicationContext;
 import org.springframework.core.io.ClassPathResource;
 
 @Slf4j
@@ -19,6 +20,15 @@ public class DemoTest {
         log.debug("执行完毕...");
     }
 
+
+    @Test
+    public void testClassPathXmlApplicationContext() {
+        ClassPathXmlApplicationContext bf = new ClassPathXmlApplicationContext("application.xml");
+        Person person = bf.getBean("person", Person.class);
+        log.info("person = {}", person);
+
+        log.debug("执行完毕...");
+    }
 
     @Test
     public void testLookUp() {
