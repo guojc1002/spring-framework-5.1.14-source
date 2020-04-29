@@ -114,10 +114,12 @@ public class ProxyProcessorSupport extends ProxyConfig implements Ordered, BeanC
 		if (hasReasonableProxyInterface) {
 			// Must allow for introductions; can't just set interfaces to the target's interfaces only.
 			for (Class<?> ifc : targetInterfaces) {
+				//	添加代理接口
 				proxyFactory.addInterface(ifc);
 			}
 		}
 		else {
+			//	设置要代理的类
 			proxyFactory.setProxyTargetClass(true);
 		}
 	}

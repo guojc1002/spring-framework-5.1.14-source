@@ -67,6 +67,12 @@ public interface PlatformTransactionManager {
 	 * @see TransactionDefinition#getTimeout
 	 * @see TransactionDefinition#isReadOnly
 	 */
+	/**
+	 * 根据指定的传播行为,返回当前活动的事务或创建新事务
+	 * @param definition
+	 * @return
+	 * @throws TransactionException
+	 */
 	TransactionStatus getTransaction(@Nullable TransactionDefinition definition)
 			throws TransactionException;
 
@@ -97,6 +103,11 @@ public interface PlatformTransactionManager {
 	 * is already completed (that is, committed or rolled back)
 	 * @see TransactionStatus#setRollbackOnly
 	 */
+	/**
+	 * 就给定事务的状态提交给定事务
+	 * @param status
+	 * @throws TransactionException
+	 */
 	void commit(TransactionStatus status) throws TransactionException;
 
 	/**
@@ -114,6 +125,11 @@ public interface PlatformTransactionManager {
 	 * (typically caused by fundamental resource failures)
 	 * @throws IllegalTransactionStateException if the given transaction
 	 * is already completed (that is, committed or rolled back)
+	 */
+	/**
+	 * 执行给定事务的回滚
+	 * @param status
+	 * @throws TransactionException
 	 */
 	void rollback(TransactionStatus status) throws TransactionException;
 

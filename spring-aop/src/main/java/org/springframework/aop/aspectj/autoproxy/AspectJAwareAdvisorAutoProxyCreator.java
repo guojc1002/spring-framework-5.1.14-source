@@ -48,6 +48,15 @@ public class AspectJAwareAdvisorAutoProxyCreator extends AbstractAdvisorAutoProx
 
 	private static final Comparator<Advisor> DEFAULT_PRECEDENCE_COMPARATOR = new AspectJPrecedenceComparator();
 
+	@Override
+	public boolean postProcessAfterInstantiation(Object bean, String beanName) {
+		return super.postProcessAfterInstantiation(bean, beanName);
+	}
+
+	@Override
+	public Object postProcessAfterInitialization(Object bean, String beanName) {
+		return super.postProcessAfterInitialization(bean, beanName);
+	}
 
 	/**
 	 * Sort the rest by AspectJ precedence. If two pieces of advice have

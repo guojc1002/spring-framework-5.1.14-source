@@ -49,6 +49,11 @@ import org.springframework.util.Assert;
 @SuppressWarnings("serial")
 public class AnnotationAwareAspectJAutoProxyCreator extends AspectJAwareAdvisorAutoProxyCreator {
 
+	@Override
+	protected Object wrapIfNecessary(Object bean, String beanName, Object cacheKey) {
+		return super.wrapIfNecessary(bean, beanName, cacheKey);
+	}
+
 	@Nullable
 	private List<Pattern> includePatterns;
 
@@ -58,6 +63,11 @@ public class AnnotationAwareAspectJAutoProxyCreator extends AspectJAwareAdvisorA
 	@Nullable
 	private BeanFactoryAspectJAdvisorsBuilder aspectJAdvisorsBuilder;
 
+
+	@Override
+	public Object postProcessAfterInitialization(Object bean, String beanName) {
+		return super.postProcessAfterInitialization(bean, beanName);
+	}
 
 	/**
 	 * Set a list of regex patterns, matching eligible @AspectJ bean names.
@@ -76,6 +86,16 @@ public class AnnotationAwareAspectJAutoProxyCreator extends AspectJAwareAdvisorA
 	}
 
 	@Override
+	public Object postProcessBeforeInstantiation(Class<?> beanClass, String beanName) {
+		return super.postProcessBeforeInstantiation(beanClass, beanName);
+	}
+
+	@Override
+	public boolean postProcessAfterInstantiation(Object bean, String beanName) {
+		return super.postProcessAfterInstantiation(bean, beanName);
+	}
+
+	@Override
 	protected void initBeanFactory(ConfigurableListableBeanFactory beanFactory) {
 		super.initBeanFactory(beanFactory);
 		if (this.aspectJAdvisorFactory == null) {
@@ -89,6 +109,7 @@ public class AnnotationAwareAspectJAutoProxyCreator extends AspectJAwareAdvisorA
 	@Override
 	protected List<Advisor> findCandidateAdvisors() {
 		// Add all the Spring advisors found according to superclass rules.
+		//	当使用注解方式配置AOP的时候并不是丢弃了对XML配置的支持,在这里调用父类方法加载配置文件中的AOP声明
 		List<Advisor> advisors = super.findCandidateAdvisors();
 		// Build Advisors for all AspectJ aspects in the bean factory.
 		if (this.aspectJAdvisorsBuilder != null) {
